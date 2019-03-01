@@ -20,7 +20,7 @@ public class Team6334PID extends CommandBase {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-
+    System.out.println("init custom arm move");
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -39,6 +39,7 @@ public class Team6334PID extends CommandBase {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    System.out.println("custom arm move done");
   }
 
   // Called when another command which requires one or more of the same

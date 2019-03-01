@@ -31,6 +31,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     System.out.println("robot init");
     CommandBase.init();
+    OI.init();
   }
 
   /**

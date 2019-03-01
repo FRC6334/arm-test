@@ -18,3 +18,5 @@ You can use the online method to install the REV Robotics Java API if your devel
     Enter the following installation URL and press ENTER:
 
     https://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json
+
+PID formula inspired by https://github.com/tekdemo/MiniPID-Java/blob/master/src/com/stormbots/MiniPID.java

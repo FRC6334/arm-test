@@ -7,6 +7,8 @@
 
 package frc.robot.subsystems;
 
+import java.util.Random;
+
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
@@ -56,12 +58,14 @@ public class Arm extends Subsystem {
       System.out.println(
         armEncoder.getVelocity()+","+
         armEncoder.getPosition()+","+
-        armMax.getAppliedOutput()
+        armMax.getAppliedOutput()+","+
+        lastP
         );
 
       lastP = lastP + (armEncoder.getVelocity() * 0.20) - (lastP * 0.10) + lastD;  
       if (lastP > 1) lastP = 1;
       if (lastP <= 0) lastP = 0.1;
+      System.out.println("P is "+lastP);
       armPID.setP(lastP);
       armPID.setReference(7, ControlType.kPosition);
 
