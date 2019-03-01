@@ -8,6 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.MoveArmToRocket2;
+import frc.robot.commands.MoveArmToRocket3;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -19,4 +23,13 @@ public class OI {
   public static Joystick getStick() {
     return mainStick;
   }
+
+  public static void init() {
+    Button rocketLevel2 = new JoystickButton(mainStick, 4);
+    Button rocketLevel3 = new JoystickButton(mainStick, 5);
+
+    rocketLevel2.whileHeld(new MoveArmToRocket2());
+    rocketLevel3.whileHeld(new MoveArmToRocket3());
+  }
+  
 }

@@ -60,7 +60,6 @@ public class Arm extends Subsystem {
     armPID.setReference(value, ControlType.kPosition);
   }
 
-  @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new ArmDrive());

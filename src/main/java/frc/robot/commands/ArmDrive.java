@@ -29,7 +29,9 @@ public class ArmDrive extends CommandBase {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    arm.setMotorPower(mainStick.getY()); // Do not worry about a deadband checker, the Spark MAX does it for you.
+    if (Math.abs(mainStick.getY()) <= 0.05) {
+      arm.setMotorPower(0);
+    } else arm.setMotorPower(mainStick.getY());
 
 
 
