@@ -40,6 +40,42 @@ public class Arm extends Subsystem {
     armPID.setFF(0);
   }
 
+  double lastP = 0.2;
+  double lastI = 0.0;
+  double lastD = 0.2;
+
+  public void liftArmToPosition(int level) {
+    if (level == 2)  {
+      armPID.setP(lastP);
+      armPID.setI(lastI);
+      armPID.setD(lastD);
+      armPID.setOutputRange(-1,1);
+      armMax.setIdleMode(CANSparkMax.IdleMode.kBrake);
+      armPID.setReference(7, ControlType.kPosition);
+
+      System.out.println(
+        armEncoder.getVelocity()+","+
+        armEncoder.getPosition()+","+
+        armMax.getAppliedOutput()
+        );
+
+      lastP = lastP + (armEncoder.getVelocity() * 0.20) - (lastP * 0.10) + lastD;  
+      if (lastP > 1) lastP = 1;
+      if (lastP <= 0) lastP = 0.1;
+      armPID.setP(lastP);
+      armPID.setReference(7, ControlType.kPosition);
+
+      //if (armEncoder.getPosition() > 10) armMax.set(0);
+
+    }
+    else if (level == 1) {
+      armMax.set(0);
+    }
+    else  {
+      armMax.set(0);
+    }
+  }
+
   public double getPosition() {
     return armEncoder.getPosition();
   }
