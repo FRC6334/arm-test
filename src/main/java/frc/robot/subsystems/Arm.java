@@ -62,6 +62,7 @@ public class Arm extends Subsystem {
         lastP
         );
 
+      //power = power + (velocity * 0.20) - (power * 0.10) + lastD;  
       lastP = lastP + (armEncoder.getVelocity() * 0.20) - (lastP * 0.10) + lastD;  
       if (lastP > 1) lastP = 1;
       if (lastP <= 0) lastP = 0.1;
