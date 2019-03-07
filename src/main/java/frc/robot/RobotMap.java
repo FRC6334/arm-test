@@ -31,4 +31,6 @@ public class RobotMap {
   public static double speedLimiter = 0.3;
   public static double rocketLevel2 = 5.0;
   public static double rocketLevel3 = 7.5;
+  public static int climberFront = 1;
+  public static int climberBack = 2;
 }

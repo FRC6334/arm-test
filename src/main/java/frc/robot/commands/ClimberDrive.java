@@ -7,26 +7,36 @@
 
 package frc.robot.commands;
 
-import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.OI;
 
-public class MoveArmToRocket3 extends CommandBase {
-  public MoveArmToRocket3() {
-    super("MoveArmToRocket3");
-    // Use requires() here to declare subsystem dependencies
-    //requires(arm);
+public class ClimberDrive extends CommandBase {
+
+  Joystick mainStick;
+
+  public ClimberDrive() {
+    super("Controls the climber");
+    requires(climber);
+    mainStick = OI.getStick();
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    System.out.println("Movement to rocket level 3 init");
-    //arm.setReference(RobotMap.rocketLevel3);
+    System.out.println("Climber drive init");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("Moving to 3...");
+    double x = mainStick.getX();
+    double y = mainStick.getY();
+
+    if (Math.abs(y) <= 0.05) {
+      climber.driveBoth(0);
+    } else {
+      climber.driveBoth(y);
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,14 +48,11 @@ public class MoveArmToRocket3 extends CommandBase {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    System.out.println("Movement to rocket level 3 done.");
-    //arm.setMotorPower(0); // Kill the PID loop
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    System.out.println("Level 3 PID interrupt");
   }
 }

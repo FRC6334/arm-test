@@ -12,14 +12,14 @@ import frc.robot.RobotMap;
 public class MoveArmToRocket2 extends CommandBase {
   public MoveArmToRocket2() {
     super("MoveArmToRocket2");
-    requires(arm);
+    //requires(arm);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
     System.out.println("Movement to rocket position 2 init");
-    arm.setReference(RobotMap.rocketLevel2); // This is not accurate, just a stab at the point. Set this to whatever you need. 
+    //arm.setReference(RobotMap.rocketLevel2); // This is not accurate, just a stab at the point. Set this to whatever you need. 
     // Get the value by opening shuffleboard, enabling the robot, and moving the arm to the point. Record value and set here
   }
 
@@ -39,7 +39,7 @@ public class MoveArmToRocket2 extends CommandBase {
   @Override
   protected void end() {
     System.out.println("Move to rocket level 2 is done.");
-    arm.setMotorPower(0); // Kill PID loop
+    //arm.setMotorPower(0); // Kill PID loop
   }
 
   // Called when another command which requires one or more of the same

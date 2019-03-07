@@ -91,8 +91,12 @@ public class Robot extends TimedRobot {
     // continue until interrupted by another command, remove
     // this line or comment it out.
     System.out.println("teleop init");
-    SmartDashboard.putNumber("Arm position", CommandBase.arm.getPosition());
-    SmartDashboard.putNumber("Arm velocity", CommandBase.arm.getVelocity());
+    //SmartDashboard.putNumber("Arm position", CommandBase.arm.getPosition());
+    //SmartDashboard.putNumber("Arm velocity", CommandBase.arm.getVelocity());
+    SmartDashboard.putNumber("Motor #1 position", CommandBase.climber.getFrontPosition());
+    SmartDashboard.putNumber("Motor #1 velocity", CommandBase.climber.getFrontVelocity());
+    SmartDashboard.putNumber("Motor #2 position", CommandBase.climber.getBackPosition());
+    SmartDashboard.putNumber("Motor #2 velocity", CommandBase.climber.getBackVelocity());
   }
 
   /**

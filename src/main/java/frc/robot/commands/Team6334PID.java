@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Team6334PID extends CommandBase {
   public Team6334PID() {
     super("customPID");
-    requires(arm);
+    //requires(arm);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,7 +27,7 @@ public class Team6334PID extends CommandBase {
   @Override
   protected void execute() {
     System.out.println("execute custom arm lift");
-    arm.liftArmToPosition(2);
+    //arm.liftArmToPosition(2);
   }
 
   // Make this return true when this Command no longer needs to run execute()

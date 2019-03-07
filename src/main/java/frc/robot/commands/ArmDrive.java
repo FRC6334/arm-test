@@ -16,7 +16,7 @@ public class ArmDrive extends CommandBase {
 
   public ArmDrive() {
     super("ArmDrive");
-    requires(arm);
+    //requires(arm);
     mainStick = OI.getStick();
   }
 
@@ -30,8 +30,10 @@ public class ArmDrive extends CommandBase {
   @Override
   protected void execute() {
     if (Math.abs(mainStick.getY()) <= 0.05) {
-      arm.setMotorPower(0);
-    } else arm.setMotorPower(mainStick.getY());
+      //arm.setMotorPower(0);
+    } else {
+      //arm.setMotorPower(mainStick.getY());
+    }
 
 
 
